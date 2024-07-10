@@ -1,0 +1,36 @@
+{
+    "name": "simplecms/bank",
+    "description": "中国银行大全",
+    "keywords": [
+        "laravel",
+        "bank",
+        "china bank list",
+        "simplecms"
+    ],
+    "version": "1.0.1",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SimpleCMS\\Bank\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hackout",
+            "email": "hackout@vip.qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SimpleCMS\\Bank\\BankServiceProvider"
+            ],
+            "aliases": {
+                "MiniProgram": "SimpleCMS\\Bank\\Facades\\Bank"
+            }
+        }
+    }
+}
