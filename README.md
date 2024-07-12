@@ -64,10 +64,10 @@ $rules = [
     'bank_code' => 'bank_code' //Bank code
 ];
 $messages = [
-    'bank.bank' => '银行名称不正确',
-    'bank_bin.bank_bin' => 'BIN码不正确',
-    'bank_card.bank_card' => '卡号不正确',
-    'bank_code.bank_code' => '银行代码不正确',
+    'bank.bank' => 'The name of bank is incorrect.',
+    'bank_bin.bank_bin' => 'The bin code is incorrect.',
+    'bank_card.bank_card' => 'The card number is incorrect.',
+    'bank_code.bank_code' => 'The code of bank is incorrect.',
 ];
 $data = $request->validate($rules,$messages);
 ```
