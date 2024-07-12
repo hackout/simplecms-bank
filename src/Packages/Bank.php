@@ -17,7 +17,7 @@ class Bank
      */
     public function __construct(protected string $bank_path)
     {
-        $this->banks = new Collection([]);
+        $this->banks = new Collection();
         $this->loadBanks();
     }
 

@@ -15,14 +15,14 @@ class BankModel implements \JsonSerializable
      *
      * @var string|null
      */
-    public string $name;
+    public string $name = null;
 
     /**
      * 银行代码
      *
      * @var string|null
      */
-    public string $code;
+    public string $code = null;
 
     /**
      * Bin 列表
@@ -31,7 +31,7 @@ class BankModel implements \JsonSerializable
      */
     public Collection $bins;
 
-    public function __construct(string $name, string $code, array $bins)
+    public function __construct(string $name = null, string $code = null, array $bins = [])
     {
         $this->name = $name;
         $this->code = $code;
@@ -133,7 +133,7 @@ class BankModel implements \JsonSerializable
     /**
      * 将 BankModel 对象序列化为数组
      *
-     * @return array
+     * @return array<string,array<string,string|int|null>|string|null>
      */
     public function toArray(): array
     {
