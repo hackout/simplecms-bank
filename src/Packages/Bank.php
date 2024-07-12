@@ -21,11 +21,6 @@ class Bank
         $this->loadBanks();
     }
 
-    public function forTest()
-    {
-        return $this->banks;
-    }
-
     /**
      * 从指定区域路径加载银行数据
      */

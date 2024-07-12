@@ -10,19 +10,19 @@ class BinModel implements \JsonSerializable
      * Bin码
      * @var string
      */
-    private string $bin;
+    public string $bin;
 
     /**
      * 卡号长度
      * @var int
      */
-    private int $length = 0;
+    public int $length = 0;
 
     /**
      * 卡类型
      * @var string<'DC','PC','CC','SCC'>
      */
-    private string $type = 'DC';
+    public string $type = 'DC';
 
     public function __construct(string $bin, string $type, int $length)
     {
