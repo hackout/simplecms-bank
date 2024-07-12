@@ -3,7 +3,7 @@ namespace SimpleCMS\Bank\Validation;
 
 
 /**
- * 检查银行名称
+ * 检查银行卡号
  */
 class BankCard
 {

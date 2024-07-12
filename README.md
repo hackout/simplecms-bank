@@ -1,67 +1,112 @@
-# 中国银行列表
 
-涵盖国内外260家银行的bin
+# Laravel Bank Component
 
-## 环境配置要求
+📦 A comprehensive collection of information covering 260 banks as published by UnionPay.
+English | [简体中文](/README-zhCN.md)
 
-1. PHP 8.0+
+## Requirements
 
-## 自定义地理数据
+- PHP >= 8.0
+- [Laravel/Framework](https://packagist.org/packages/laravel/framework) >= 9.0
 
-在```.env```增加以下代码:
-
-```bash
-BANK_PATH='你的银行json文件地址' #绝对位置
-```
-
-## 安装
+## Installation
 
 ```bash
 composer require simplecms/bank
 ```
 
-## 列表及查询
+## Usage
+
+Includes Validation Rule and safe_bank_number method. 
+
+### Get Bank List
 
 ```php
 use SimpleCMS\Bank\Facades\Bank; 
-//获取列表
-Bank::getOptions(); // 返回为Collection<value:string,name:string>
-Bank::getOptions('DC'); // 返回贷记卡银行列表 支持 DC CC SCC PC
+
+Bank::getBankList(); //Returns the complete list
+Bank::getOptions(); // Returns as Collection<value:string, name:string>
+Bank::getOptions('DC'); // Returns a list of debit card banks. Supports all, DC, CC, SCC, PC
+```
+
+### Query and Check
+
+```php
+use SimpleCMS\Bank\Facades\Bank; 
+
+Bank::getBankByCode($code); // Retrieve bank information by code
+Bank::getBankByName($name); // Retrieve bank information by name
+Bank::getBankByBin($bin); // Retrieve bank information by BIN
+Bank::getBankByCardNumber($card_number); // Retrieve bank information by card number
+Bank::checkBin($bin); // Check the validity of BIN
+Bank::checkCardNumber($card_number); // Check the validity of card number
+```
+
+### Helpers
+
+```php
+$card_number = '62270000000006666';
+//Bank card masking
+safe_bank_number((string) $card_number, (string) $maskChar = '*', (int) $start = 6, (int) $length = 4); // 622700********6666
 
 ```
 
-## 数据结构
+### Validation
 
-数据结构参考遵循以下格式:
+```php
+$rules = [
+    'bank' => 'bank', //Bank name
+    'bank_bin' => 'bank_bin', //Bank BIN
+    'bank_card' => 'bank_card', //Bank card number
+    'bank_code' => 'bank_code' //Bank code
+];
+$messages = [
+    'bank.bank' => '银行名称不正确',
+    'bank_bin.bank_bin' => 'BIN码不正确',
+    'bank_card.bank_card' => '卡号不正确',
+    'bank_code.bank_code' => '银行代码不正确',
+];
+$data = $request->validate($rules,$messages);
+```
+
+## Custom Bank Data
+
+You can customize your own data through the ```.env``` file.
+
+### Modify Configuration File Path
+
+Add the following code to your ```.env``` file:
+
+```bash
+BANK_PATH='Your bank JSON file address' #Absolute location
+```
+
+### JSON Data Format
+
+The data structure follows the format below:
 
 ```bash
 {
-    "name": "银行名称",
-    "code": "银行代码标识",
+    "name": "Bank Name",
+    "code": "Bank code identifier",
     "bins": {
-        "DC": {  #DC 储蓄卡
-            19: ["123456","23456"] # 19为卡号长度，数字内容为bin码
+        "DC": {  # DC Debit Card
+            "19": ["123456", "23456"] # 19 is the card number length, numeric content is the BIN code
         },
-        "CC": {  #CC 信用卡
-            "18": ["32131","13123"]
+        "CC": {  # CC Credit Card
+            "18": ["32131", "13123"]
         },
-        "SCC": { #准贷记卡
-            "16": ["1233","2345"],
-            "17": ["3213","3322"]
+        "SCC": { # Semi-Credit Card
+            "16": ["1233", "2345"],
+            "17": ["3213", "3322"]
         },
-        "PC": { #预付费卡
+        "PC": { # Prepaid Card
             "15": ["1234"]
         }
     }
 }
 ```
 
-## Facades
+## License
 
-```php
-use SimpleCMS\Bank\Facades\Bank; #银行卡列表 
-```
-
-## 其他说明
-
-更多操作参考IDE提示
+MIT

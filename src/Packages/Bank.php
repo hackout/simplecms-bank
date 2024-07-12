@@ -107,7 +107,7 @@ class Bank
      */
     public function getBankByCardNumber(string $cardNumber): ?BankModel
     {
-        return $this->banks->first(fn($bank) => $bank->hasCardNumber($cardNumber));
+        return $this->banks->first(fn(BankModel $bank) => $bank->hasCardNumber($cardNumber));
     }
 
     /**
@@ -118,7 +118,18 @@ class Bank
      */
     public function checkBin(string $bin): bool
     {
-        return $this->banks->contains(fn($bank) => $bank->isValid($bin));
+        return $this->banks->contains(fn(BankModel $bank) => $bank->isValid($bin));
+    }
+
+    /**
+     * 检查卡号有效性
+     *
+     * @param string $bin BIN码
+     * @return bool
+     */
+    public function checkCardNumber(string $bin): bool
+    {
+        return $this->banks->contains(fn(BankModel $bank) => $bank->hasCardNumber($bin));
     }
 
     /**

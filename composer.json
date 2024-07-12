@@ -1,13 +1,13 @@
 {
     "name": "simplecms/bank",
-    "description": "中国银行大全",
+    "description": " Laravel Bank Component / 银行大全",
     "keywords": [
         "laravel",
         "bank",
         "china bank list",
         "simplecms"
     ],
-    "version": "1.0.1",
+    "version": "1.0.2",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -22,7 +22,7 @@
     ],
     "require": {
         "php": ">=8.0",
-        "laravel/framework": ">=5.0"
+        "laravel/framework": ">=9.0"
     },
     "extra": {
         "laravel": {
