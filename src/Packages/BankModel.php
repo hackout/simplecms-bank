@@ -15,14 +15,14 @@ class BankModel implements \JsonSerializable
      *
      * @var string|null
      */
-    public string $name = null;
+    public ?string $name = null;
 
     /**
      * 银行代码
      *
      * @var string|null
      */
-    public string $code = null;
+    public ?string $code = null;
 
     /**
      * Bin 列表
