@@ -148,9 +148,9 @@ class BankModel implements \JsonSerializable
     /**
      * 将 BankModel 对象序列化为 JSON
      *
-     * @return string
+     * @return array<array<int|string|null>|string|null>
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }
