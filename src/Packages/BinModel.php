@@ -60,7 +60,7 @@ class BinModel implements \JsonSerializable
      * jsonSerialize
      * @return array<array<int|string|null>|string|null>
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return get_object_vars($this);
     }

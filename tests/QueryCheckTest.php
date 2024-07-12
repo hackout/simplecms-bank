@@ -37,7 +37,6 @@ class QueryCheckTest extends \PHPUnit\Framework\TestCase
     {
         require_once (__DIR__ . '/../src/helpers/safe_bank_number.php');
         $maskBank = safe_bank_number('6258261234567890');
-        echo ($maskBank);
         $this->assertIsString($maskBank);
     }
 }

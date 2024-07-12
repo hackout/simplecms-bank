@@ -5,6 +5,7 @@ use SimpleCMS\Bank\Packages\Bank;
 
 class BankListTest extends \PHPUnit\Framework\TestCase
 {
+ 
     public function testBankList()
     {
         $bank = new Bank(__DIR__ . '/../data/banks.json');

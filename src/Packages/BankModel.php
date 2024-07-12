@@ -150,7 +150,7 @@ class BankModel implements \JsonSerializable
      *
      * @return array<array<int|string|null>|string|null>
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return $this->toArray();
     }
