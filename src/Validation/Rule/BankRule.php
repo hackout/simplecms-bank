@@ -12,11 +12,6 @@ use SimpleCMS\Bank\Validation\Bank;
 class BankRule implements Rule
 {
 
-    public function validate($attribute, $value, $parameters)
-    {
-        return $this->passes($attribute, $value);
-    }
-
     /**
      * Determine if the validation rule passes.
      *
@@ -36,6 +31,6 @@ class BankRule implements Rule
      */
     public function message()
     {
-        return 'The Bank name is incorrect.';
+        return 'The name of bank is incorrect.';
     }
 }

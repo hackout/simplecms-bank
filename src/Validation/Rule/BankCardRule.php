@@ -12,11 +12,6 @@ use SimpleCMS\Bank\Validation\BankCard;
 class BankCardRule implements Rule
 {
 
-    public function validate($attribute, $value, $parameters)
-    {
-        return $this->passes($attribute, $value);
-    }
-
     /**
      * Determine if the validation rule passes.
      *

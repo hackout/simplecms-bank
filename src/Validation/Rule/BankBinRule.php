@@ -12,11 +12,6 @@ use SimpleCMS\Bank\Validation\BankBin;
 class BankBinRule implements Rule
 {
 
-    public function validate($attribute, $value, $parameters)
-    {
-        return $this->passes($attribute, $value);
-    }
-
     /**
      * Determine if the validation rule passes.
      *
@@ -36,6 +31,6 @@ class BankBinRule implements Rule
      */
     public function message()
     {
-        return 'The bank bin is incorrect.';
+        return 'The bin code is incorrect.';
     }
 }
