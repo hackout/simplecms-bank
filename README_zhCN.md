@@ -2,7 +2,7 @@
 
 📦 一个涵盖银联公布的260个银行的相关信息。
 
-简体中文 | [English](/README.md)
+简体中文 | [English](./README.md)
 
 [![Latest Stable Version](https://poser.pugx.org/simplecms/bank/v/stable.svg)](https://packagist.org/packages/simplecms/bank) [![Latest Unstable Version](https://poser.pugx.org/simplecms/bank/v/unstable.svg)](https://packagist.org/packages/simplecms/bank) [![Code Coverage](https://scrutinizer-ci.com/g/overtrue/easy-sms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/hackout/simplecms-bank/?branch=master) [![Total Downloads](https://poser.pugx.org/simplecms/bank/downloads)](https://packagist.org/packages/simplecms/bank) [![License](https://poser.pugx.org/simplecms/bank/license)](https://packagist.org/packages/simplecms/bank)
 
