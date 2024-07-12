@@ -21,6 +21,11 @@ class Bank
         $this->loadBanks();
     }
 
+    public function forTest()
+    {
+        return $this->banks;
+    }
+
     /**
      * 从指定区域路径加载银行数据
      */
@@ -50,7 +55,7 @@ class Bank
         $obj = new BankModel(
             $bankData['name'] ?? null,
             $bankData['code'] ?? null,
-            $bankData['bins'] ?? []
+            $bankData['bin'] ?? []
         );
 
         return $obj;

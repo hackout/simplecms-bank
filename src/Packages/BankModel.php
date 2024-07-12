@@ -74,7 +74,7 @@ class BankModel implements \JsonSerializable
      */
     public function getDC(): ?Collection
     {
-        return $this->bins ? $this->bins->filter(fn($n) => $n->type == 'DC')->values() : null;
+        return $this->bins ? $this->bins->filter(fn(BinModel $n) => $n->type == 'DC')->values() : null;
     }
 
     /**
@@ -84,7 +84,7 @@ class BankModel implements \JsonSerializable
      */
     public function getPC(): ?Collection
     {
-        return $this->bins ? $this->bins->filter(fn($n) => $n->type == 'PC')->values() : null;
+        return $this->bins ? $this->bins->filter(fn(BinModel $n) => $n->type == 'PC')->values() : null;
     }
 
     /**
@@ -94,7 +94,7 @@ class BankModel implements \JsonSerializable
      */
     public function getCC(): ?Collection
     {
-        return $this->bins ? $this->bins->filter(fn($n) => $n->type == 'CC')->values() : null;
+        return $this->bins ? $this->bins->filter(fn(BinModel $n) => $n->type == 'CC')->values() : null;
     }
 
     /**
@@ -104,7 +104,7 @@ class BankModel implements \JsonSerializable
      */
     public function hasBin(string $bin): bool
     {
-        return $this->bins->contains(fn($binModel) => $binModel->bin === $bin);
+        return $this->bins->contains(fn(BinModel $n) => $n->bin === $bin);
     }
 
     /**
@@ -115,7 +115,7 @@ class BankModel implements \JsonSerializable
      */
     public function hasCardNumber(string $cardNumber): bool
     {
-        return $this->bins->contains(fn($binModel) => strpos($cardNumber, $binModel->bin) === 0);
+        return $this->bins->contains(fn(BinModel $n) => strpos($cardNumber, $n->bin) === 0);
     }
 
     /**
@@ -125,7 +125,7 @@ class BankModel implements \JsonSerializable
      */
     public function getSCC(): ?Collection
     {
-        return $this->bins ? $this->bins->filter(fn($n) => $n->type == 'SCC')->values() : null;
+        return $this->bins ? $this->bins->filter(fn(BinModel $n) => $n->type == 'SCC')->values() : null;
     }
 
     /**
