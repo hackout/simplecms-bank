@@ -16,7 +16,7 @@ class QueryCheckTest extends \PHPUnit\Framework\TestCase
         $this->assertIsObject($codeBank);
 
         $binBank = $bank->getBankByBin('625826');
-        $this->assertIsObject($binBank);
+        $this->assertIsObject($binBank,'校验Bin失败'.$bank->getBankList()->toJson());
 
         $cardBank = $bank->getBankByCardNumber('6258261234567890');
         $this->assertIsObject($cardBank);

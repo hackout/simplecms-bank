@@ -49,7 +49,9 @@ class BankModel implements \JsonSerializable
     {
         foreach ($data as $type => $_bins) {
             foreach ($_bins as $length => $bin) {
-                $this->bins->push(new BinModel((string) $bin, (string) $type, (int) $length));
+                foreach ($bin as $_bin) {
+                    $this->bins->push(new BinModel((string) $_bin, (string) $type, (int) $length));
+                }
             }
         }
     }
