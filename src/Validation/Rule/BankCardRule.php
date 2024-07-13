@@ -11,6 +11,20 @@ use SimpleCMS\Bank\Validation\BankCard;
  */
 class BankCardRule implements Rule
 {
+    /**
+     * Run the validation rule.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+     * @return void
+     */
+    public function validate(string $attribute, mixed $value, \Closure $fail): void
+    {
+        if (!$this->passes($attribute, $value)) {
+            $fail($this->message());
+        }
+    }
 
     /**
      * Determine if the validation rule passes.
@@ -31,6 +45,6 @@ class BankCardRule implements Rule
      */
     public function message()
     {
-        return 'The card number is incorrect.';
+        return 'The :attribute is incorrect.';
     }
 }
